@@ -8,6 +8,8 @@ def create_app() -> Flask:
     app = Flask(__name__)
 
     from app.auth.routes import auth
+    from app.dashboard.routes import dashboard
 
     app.register_blueprint(auth)
+    app.register_blueprint(dashboard)
     return app
