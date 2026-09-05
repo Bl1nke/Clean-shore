@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 :root {
   --blue: #4169E1;
   --mist: #F0FFFF;
@@ -220,7 +219,8 @@ body { margin: 0; min-width: 320px; background: #fff; color: var(--ink); }
   .side-nav { display: flex; gap: 3px; margin: 0; }.side-nav__item { width: 38px; min-height: 38px; height: 38px; justify-content: center; padding: 0; border-radius: 11px; }.side-nav__item svg { width: 22px; height: 22px; }.side-nav__item span, .side-nav__item--bottom { display: none; }
   .workspace { padding: 38px 20px 32px; }.workspace__header { margin-bottom: 25px; }.workspace h1 { font-size: 33px; }.coast-map { min-height: 310px; }.primary-button { width: 100%; margin-top: 24px; }
   .right-panel { display: block; padding: 15px 20px 40px; }.right-panel section + section { margin-top: 34px; }.community-progress { padding: 30px 0 0; border-top: 1px solid rgb(45 85 135 / 14%); border-left: 0; }
-=======
+}
+
 /*
  * Общие стили всего сайта.
  * Палитра: #4169E1 (royal blue), #F0FFFF (azure)
@@ -400,6 +400,17 @@ main {
 .scout-xp-label strong {
   color: var(--azure);
   font-weight: 800;
+}
+
+.scout-xp-label .leaf-icon {
+  width: 12px;
+  height: 12px;
+  vertical-align: -2px;
+  fill: #70d879;
+  stroke: #2f9d4d;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
 }
 
 .scout-xp-bar {
@@ -597,5 +608,4 @@ main {
   #map {
     border-radius: 20px;
   }
->>>>>>> 2bba3ac (Добавлена карта)
 }

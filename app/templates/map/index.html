@@ -14,14 +14,14 @@
         </svg>
       </div>
       <div class="scout-level">Скаут <strong>5</strong> уровня</div>
-      <div class="scout-xp-label"><strong>4 280</strong> / 5 000 XP</div>
+      <div class="scout-xp-label"><strong>4 280</strong> / 5 000 <svg class="leaf-icon" viewBox="0 0 24 24" aria-label="Очки опыта"><path d="M20.5 3.5C12 3.2 5 6.4 4 13.1c-.5 3.5 1.7 6.4 5.3 6.4 7.1 0 10.2-7.9 11.2-16Z"></path><path d="M4 20c2.8-4.7 6.7-8 12.4-10.5"></path></svg></div>
       <div class="scout-xp-bar">
         <div class="scout-xp-bar__fill" style="width: 85.6%"></div>
       </div>
     </div>
 
     <nav class="scout-nav" aria-label="Навигация">
-      <a class="scout-nav__btn" href="/" title="Главная">
+      <a class="scout-nav__btn" href="{{ url_for('dashboard.index') }}" title="Главная">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 11.5 12 4l8 7.5"/>
           <path d="M6.5 10.5V20h11V10.5"/>
@@ -35,12 +35,6 @@
       </a>
     </nav>
 
-    <a class="scout-nav__btn scout-nav__btn--bottom" href="#" title="Настройки">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M12 3.5v2.2M12 18.3v2.2M4.9 6.5l1.6 1.6M17.5 15.9l1.6 1.6M3.5 12h2.2M18.3 12h2.2M4.9 17.5l1.6-1.6M17.5 8.1l1.6-1.6"/>
-      </svg>
-    </a>
   </aside>
 
   <section class="scout-main">
