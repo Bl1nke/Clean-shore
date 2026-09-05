@@ -1,1 +1,74 @@
-<!-- Main page after sign-in: personal summary and shortcuts. -->
+{% extends "base.html" %}
+
+{% block title %}Главная — Чистый берег{% endblock %}
+
+{% block content %}
+  <main class="dashboard-page" aria-label="Панель участника Чистого берега">
+    <section class="dashboard-shell">
+      <aside class="sidebar" aria-label="Навигация">
+        <div class="profile-summary">
+          <div class="avatar" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4.5 21a7.5 7.5 0 0 1 15 0"></path></svg>
+          </div>
+          <p>Скаут <strong>5</strong> уровня</p>
+          <div class="progress-copy"><span>4 280</span><span>/ 5 000</span><svg class="leaf-icon" viewBox="0 0 24 24" aria-label="Очки опыта"><path d="M20.5 3.5C12 3.2 5 6.4 4 13.1c-.5 3.5 1.7 6.4 5.3 6.4 7.1 0 10.2-7.9 11.2-16Z"></path><path d="M4 20c2.8-4.7 6.7-8 12.4-10.5"></path></svg></div>
+          <div class="progress-track" aria-label="4280 из 5000 опыта"><span></span></div>
+        </div>
+
+        <nav class="side-nav">
+          <a class="side-nav__item is-active" href="{{ url_for('dashboard.index') }}" aria-label="Главная" title="Главная">
+            <svg viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>
+            <span>Главная</span>
+          </a>
+          <a class="side-nav__item" href="#map" aria-label="Карта" title="Карта">
+            <svg viewBox="0 0 24 24"><path d="m9 18-6 3V6l6-3 6 3 6-3v15l-6 3z"></path><path d="M9 3v15M15 6v15"></path></svg>
+            <span>Карта</span>
+          </a>
+          <a class="side-nav__item" href="#video" aria-label="Видео" title="Видео">
+            <svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="14" height="14" rx="2.5"></rect><path d="m10 9 4 3-4 3z"></path><path d="m16.5 10 5-3v10l-5-3z"></path></svg>
+            <span>Видео</span>
+          </a>
+          <a class="side-nav__item" href="#news" aria-label="Новости" title="Новости">
+            <svg viewBox="0 0 24 24"><path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"></path><path d="M8 8h8M8 12h8M8 16h5"></path></svg>
+            <span>Новости</span>
+          </a>
+        </nav>
+
+        <a class="side-nav__item side-nav__item--bottom" href="#settings" aria-label="Настройки" title="Настройки">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.4 2.4-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.04 1.56V21h-3.4v-.08A1.7 1.7 0 0 0 10 19.36a1.7 1.7 0 0 0-1.88.34l-.06.06-2.4-2.4.06-.06A1.7 1.7 0 0 0 6.06 15 1.7 1.7 0 0 0 4.5 14H4v-3.4h.08A1.7 1.7 0 0 0 5.64 9a1.7 1.7 0 0 0-.34-1.88L5.24 7l2.4-2.4.06.06A1.7 1.7 0 0 0 10 5a1.7 1.7 0 0 0 1.04-1.56V3h3.4v.08A1.7 1.7 0 0 0 15.48 4.64a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.4 2.4-.06.06A1.7 1.7 0 0 0 19.42 9 1.7 1.7 0 0 0 21 10.04h.5v3.4H21A1.7 1.7 0 0 0 19.4 15Z"></path></svg>
+          <span>Настройки</span>
+        </a>
+      </aside>
+
+      <section class="workspace">
+        <header class="workspace__header">
+          <h1>Чистый берег — Панель разведки</h1>
+        </header>
+
+        <div class="coast-map" id="map" role="img" aria-label="Карта побережья с четырьмя доступными участками">
+          <span class="map-marker map-marker--one">1</span><span class="map-marker map-marker--two">2</span><span class="map-marker map-marker--three">3</span><span class="map-marker map-marker--four">4</span>
+        </div>
+        <button class="primary-button" type="button">Начать разведку</button>
+      </section>
+
+      <aside class="right-panel">
+        <section>
+          <h1>Лидерборд</h1>
+          <ol class="leaderboard">
+            <li><span class="leaderboard__avatar avatar--a"></span><span>Алексей</span><strong>12 450 <svg class="leaf-icon" viewBox="0 0 24 24" aria-label="Очки опыта"><path d="M20.5 3.5C12 3.2 5 6.4 4 13.1c-.5 3.5 1.7 6.4 5.3 6.4 7.1 0 10.2-7.9 11.2-16Z"></path><path d="M4 20c2.8-4.7 6.7-8 12.4-10.5"></path></svg></strong></li>
+            <li><span class="leaderboard__avatar avatar--b"></span><span>Мария</span><strong>11 890 <svg class="leaf-icon" viewBox="0 0 24 24" aria-label="Очки опыта"><path d="M20.5 3.5C12 3.2 5 6.4 4 13.1c-.5 3.5 1.7 6.4 5.3 6.4 7.1 0 10.2-7.9 11.2-16Z"></path><path d="M4 20c2.8-4.7 6.7-8 12.4-10.5"></path></svg></strong></li>
+            <li><span class="leaderboard__avatar avatar--c"></span><span>Иван</span><strong>10 620 <svg class="leaf-icon" viewBox="0 0 24 24" aria-label="Очки опыта"><path d="M20.5 3.5C12 3.2 5 6.4 4 13.1c-.5 3.5 1.7 6.4 5.3 6.4 7.1 0 10.2-7.9 11.2-16Z"></path><path d="M4 20c2.8-4.7 6.7-8 12.4-10.5"></path></svg></strong></li>
+          </ol>
+        </section>
+        <section class="community-progress">
+          <h1>Достижения<br>сообщества</h1>
+          <ul>
+            <li>Собрано 2.1 тонны мусора</li>
+            <li>Размечено 87 точек</li>
+            <li>Обучено 42 волонтёра</li>
+          </ul>
+        </section>
+      </aside>
+    </section>
+  </main>
+{% endblock %}
