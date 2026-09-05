@@ -1,5 +1,5 @@
 
-"""Application factory for the Clean Shore web service."""
+
 
 from flask import Flask
 from app.map.routes import map_bp
