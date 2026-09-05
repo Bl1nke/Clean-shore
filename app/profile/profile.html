@@ -6,17 +6,17 @@
   <title>Личный кабинет — Чистый берег</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="profile.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/profile/profile.css">
 </head>
 <body>
   <div class="page">
     <!-- Header -->
     <header class="header">
-      <div class="brand">
+      <a class="brand" href="/dashboard" aria-label="Главная — Чистый берег" title="На главную">
         <div class="brand__name">Чистый берег</div>
         <div class="brand__tag">Личный трекер</div>
-      </div>
+      </a>
       <div class="user" title="Профиль">
         <div class="user__avatar" aria-hidden="true">А</div>
         <span class="user__name">Дарья</span>
@@ -167,7 +167,7 @@
 
         <a
           class="task"
-          href="../templates/map/index.html"
+          href="/map"
           data-navigate="true"
         >
           <span class="task__icon" aria-hidden="true">
