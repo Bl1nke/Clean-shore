@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 :root {
   --blue: #4169E1;
   --mist: #F0FFFF;
@@ -228,6 +221,7 @@ body { margin: 0; min-width: 320px; background: #fff; color: var(--ink); }
   .workspace { padding: 38px 20px 32px; }.workspace__header { margin-bottom: 25px; }.workspace h1 { font-size: 33px; }.coast-map { min-height: 310px; }.primary-button { width: 100%; margin-top: 24px; }
   .right-panel { display: block; padding: 15px 20px 40px; }.right-panel section + section { margin-top: 34px; }.community-progress { padding: 30px 0 0; border-top: 1px solid rgb(45 85 135 / 14%); border-left: 0; }
 }
+
 
 /*
  * Общие стили всего сайта.
@@ -617,3 +611,4 @@ main {
     border-radius: 20px;
   }
 }
+

@@ -1,8 +1,7 @@
 
-
-
 from flask import Flask
 from app.map.routes import map_bp
+
 
 def create_app() -> Flask:
     """Create and configure the application."""
@@ -14,5 +13,5 @@ def create_app() -> Flask:
     app.register_blueprint(auth)
     app.register_blueprint(dashboard)
     app.register_blueprint(map_bp)
-    return app
 
+    return app
