@@ -1,5 +1,98 @@
-/*
- * Общие стили всего сайта.
- * Здесь будут размещены базовые правила, стили страницы входа,
- * главной панели, профиля, карты и обучения.
- */
+:root {
+  --blue: #0c4de4;
+  --ink: #273354;
+  font-family: "Manrope", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body { margin: 0; min-width: 320px; background: #fff; color: var(--ink); }
+
+.welcome {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: clamp(16px, 2.4vw, 40px);
+}
+
+.role-picker {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: min(100%, 1800px);
+  min-height: min(860px, calc(100svh - 80px));
+  overflow: hidden;
+  border-radius: clamp(22px, 1.8vw, 34px);
+  box-shadow: 0 9px 21px rgb(29 56 110 / 24%);
+  transition: grid-template-columns .52s cubic-bezier(.22, .8, .24, 1);
+}
+
+.welcome__brand {
+  position: absolute;
+  z-index: 4;
+  top: clamp(26px, 4vw, 58px);
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  margin: 0;
+  padding: 12px 22px 12px 13px;
+  border: 1px solid rgb(255 255 255 / 72%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 76%);
+  box-shadow: 0 8px 24px rgb(28 58 113 / 10%);
+  backdrop-filter: blur(12px);
+  color: #111827;
+  font-size: clamp(19px, 1.5vw, 25px);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  transform: translateX(-50%);
+}
+
+.welcome__brand-mark {
+  display: grid;
+  width: 36px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-family: Georgia, serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  transform: rotate(-8deg);
+}
+
+.role-picker:has(.role-card--public:hover), .role-picker:has(.role-card--public:focus-within) { grid-template-columns: 1.32fr .68fr; }
+.role-picker:has(.role-card--team:hover), .role-picker:has(.role-card--team:focus-within) { grid-template-columns: .68fr 1.32fr; }
+.role-card { position: relative; display: grid; min-width: 0; min-height: 620px; overflow: hidden; text-align: center; }
+.role-card__content { z-index: 2; align-self: center; width: min(100%, 510px); margin: 0 auto; padding: 116px 36px 182px; }
+.role-card--public { background: linear-gradient(140deg, #fafdff 18%, #eff8ff 100%); }
+.role-card--team { color: white; background: linear-gradient(135deg, #174ddd, #0638bd); }
+.role-card__eyebrow { margin: 0; font-size: clamp(43px, 5vw, 92px); font-weight: 800; letter-spacing: -.07em; line-height: 1.06; }
+.role-card--team .role-card__eyebrow { font-size: clamp(38px, 3.6vw, 64px); letter-spacing: -.055em; }
+.role-card__accent { display: block; width: 102px; height: 11px; margin: clamp(24px, 3vw, 38px) auto 27px; border-radius: 999px; background: #5d8eff; }
+.role-card p:not(.role-card__eyebrow) { margin: 0; font-size: clamp(17px, 1.7vw, 25px); font-weight: 500; line-height: 1.55; }
+.role-card__button { display: inline-flex; align-items: center; justify-content: center; min-width: 144px; height: 48px; margin-top: 30px; border: 1px solid currentColor; border-radius: 999px; color: inherit; font-weight: 700; text-decoration: none; opacity: 0; transform: translateY(8px); transition: .2s ease; }
+.role-card:hover .role-card__button, .role-card:focus-within .role-card__button { opacity: 1; transform: translateY(0); }
+
+.mountains { position: absolute; inset: auto 0 0; height: 49%; opacity: .7; background-repeat: no-repeat; background-position: bottom; background-size: cover; clip-path: polygon(0 38%, 9% 20%, 16% 40%, 25% 12%, 36% 50%, 50% 27%, 61% 42%, 72% 8%, 82% 35%, 92% 18%, 100% 40%, 100% 100%, 0 100%); }
+.mountains::after { position: absolute; inset: 43% 0 0; content: ""; background: linear-gradient(0deg, currentColor, transparent); opacity: .18; }
+.mountains--light { color: #7db2ff; background-image: linear-gradient(0deg, #b3d4ff, transparent); }
+.mountains--dark { color: #001d86; background-image: linear-gradient(0deg, #0034bb, transparent); opacity: .88; }
+
+@media (max-width: 720px) {
+  .welcome { padding: 0; }
+  .role-picker { grid-template-columns: 1fr; min-height: 100svh; border-radius: 0; }
+  .role-card { min-height: 50svh; }
+  .welcome__brand { top: 18px; gap: 8px; padding: 8px 14px 8px 9px; font-size: 16px; }
+  .welcome__brand-mark { width: 27px; font-size: 23px; }
+  .role-card__content { padding: 68px 28px 95px; }
+  .role-card__eyebrow { font-size: 48px; }
+  .role-card--team .role-card__eyebrow { font-size: 39px; }
+  .role-card__accent { width: 74px; height: 8px; margin: 16px auto; }
+  .role-card p:not(.role-card__eyebrow) { font-size: 15px; }
+  .role-card__button { opacity: 1; transform: none; height: 40px; margin-top: 18px; }
+  .role-picker:has(.role-card--public:hover), .role-picker:has(.role-card--public:focus-within), .role-picker:has(.role-card--team:hover), .role-picker:has(.role-card--team:focus-within) { grid-template-columns: 1fr; }
+}
