@@ -14,7 +14,7 @@
           <p class="role-card__eyebrow">14+</p>
           <span class="role-card__accent" aria-hidden="true"></span>
           <p>Мы могнем мусор на берегах РФ</p>
-          <a class="role-card__button" href="#login" aria-label="Войти как участник">Войти</a>
+          <a class="role-card__button" href="{{ url_for('dashboard.index') }}" aria-label="Войти как участник">Войти</a>
         </div>
         <div class="mountains mountains--light" aria-hidden="true"></div>
       </article>
@@ -24,7 +24,7 @@
           <p class="role-card__eyebrow">Сотрудники<br>ООПТ</p>
           <span class="role-card__accent" aria-hidden="true"></span>
           <p>Опытные и харизматичные</p>
-          <a class="role-card__button" href="#login" aria-label="Войти как сотрудник ООПТ">Войти</a>
+          <a class="role-card__button" href="{{ url_for('dashboard.index') }}" aria-label="Войти как сотрудник ООПТ">Войти</a>
         </div>
         <div class="mountains mountains--dark" aria-hidden="true"></div>
       </article>
