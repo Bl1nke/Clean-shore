@@ -478,6 +478,7 @@ main {
   background: rgba(240, 255, 255, 0.85) !important;
   color: var(--muted) !important;
   font-size: 10px !important;
+  display: none !important;
 }
 
 .leaflet-popup-content-wrapper {
