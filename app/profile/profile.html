@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Личный кабинет — Чистый берег</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <div class="page">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <div class="brand__name">Чистый берег</div>
+        <div class="brand__tag">Личный трекер</div>
+      </div>
+      <div class="user" title="Профиль">
+        <div class="user__avatar" aria-hidden="true">А</div>
+        <span class="user__name">Дарья</span>
+      </div>
+    </header>
+
+    <!-- Streak -->
+    <section class="panel" aria-labelledby="streak-heading">
+      <p class="panel__label" id="streak-heading">Ритм</p>
+      <div class="streak">
+        <div class="flames-wrap">
+          <div class="flames" role="list" aria-label="Огоньки за последние 7 дней">
+            <!-- Пн–Сб горят; вс (сегодня) — ещё не совершено действие -->
+            <div class="flame flame--on" role="listitem" title="Понедельник — активность есть">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c.4 3.2-1.6 5.2-3.2 6.8C6.8 10.8 5 13 5 16a7 7 0 0 0 14 0c0-3.4-2.4-5.6-4.2-7.4C13.4 7.2 12.4 5.6 12 2z"/>
+              </svg>
+              <span class="flame__day">Пн</span>
+            </div>
+            <div class="flame flame--on" role="listitem" title="Вторник — активность есть">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c.4 3.2-1.6 5.2-3.2 6.8C6.8 10.8 5 13 5 16a7 7 0 0 0 14 0c0-3.4-2.4-5.6-4.2-7.4C13.4 7.2 12.4 5.6 12 2z"/>
+              </svg>
+              <span class="flame__day">Вт</span>
+            </div>
+            <div class="flame flame--on" role="listitem" title="Среда — активность есть">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c.4 3.2-1.6 5.2-3.2 6.8C6.8 10.8 5 13 5 16a7 7 0 0 0 14 0c0-3.4-2.4-5.6-4.2-7.4C13.4 7.2 12.4 5.6 12 2z"/>
+              </svg>
+              <span class="flame__day">Ср</span>
+            </div>
+            <div class="flame flame--on" role="listitem" title="Четверг — активность есть">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c.4 3.2-1.6 5.2-3.2 6.8C6.8 10.8 5 13 5 16a7 7 0 0 0 14 0c0-3.4-2.4-5.6-4.2-7.4C13.4 7.2 12.4 5.6 12 2z"/>
+              </svg>
+              <span class="flame__day">Чт</span>
+            </div>
+            <div class="flame flame--on" role="listitem" title="Пятница — активность есть">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c.4 3.2-1.6 5.2-3.2 6.8C6.8 10.8 5 13 5 16a7 7 0 0 0 14 0c0-3.4-2.4-5.6-4.2-7.4C13.4 7.2 12.4 5.6 12 2z"/>
+              </svg>
+              <span class="flame__day">Пт</span>
+            </div>
+            <div class="flame flame--on" role="listitem" title="Суббота — активность есть">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c.4 3.2-1.6 5.2-3.2 6.8C6.8 10.8 5 13 5 16a7 7 0 0 0 14 0c0-3.4-2.4-5.6-4.2-7.4C13.4 7.2 12.4 5.6 12 2z"/>
+              </svg>
+              <span class="flame__day">Сб</span>
+            </div>
+            <div class="flame flame--today-pending" role="listitem" title="Воскресенье — действие ещё не совершено">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c.4 3.2-1.6 5.2-3.2 6.8C6.8 10.8 5 13 5 16a7 7 0 0 0 14 0c0-3.4-2.4-5.6-4.2-7.4C13.4 7.2 12.4 5.6 12 2z"/>
+              </svg>
+              <span class="flame__day">Вс</span>
+            </div>
+          </div>
+        </div>
+        <div class="streak__count">
+          <div class="streak__number">6</div>
+          <div class="streak__caption">Дней подряд</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Level & leaves -->
+    <section class="panel" aria-labelledby="level-heading">
+      <p class="panel__label" id="level-heading">Уровень</p>
+      <div class="level-head">
+        <h2 class="level-title">Хранитель берега</h2>
+        <span class="level-badge">Уровень 5</span>
+      </div>
+      <div class="xp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="500" aria-valuenow="340" aria-label="Прогресс по листикам">
+        <div class="xp-bar__fill" style="width: 68%"></div>
+      </div>
+      <p class="xp-meta">Листики: <strong>340 / 500</strong> до следующего уровня</p>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats" aria-label="Статистика уборок">
+      <div class="stat">
+        <div class="stat__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 21h18"/>
+            <path d="M5 21V10l7-5 7 5v11"/>
+            <path d="M9 21v-6h6v6"/>
+          </svg>
+        </div>
+        <div>
+          <div class="stat__value">12</div>
+          <div class="stat__label">Проведено уборок</div>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat__icon stat__icon--photo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <circle cx="12" cy="12" r="3.5"/>
+            <path d="M7 5l1.5-2h7L17 5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="stat__value">28</div>
+          <div class="stat__label">Загружено фото</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Today's tasks -->
+    <section class="panel" aria-labelledby="tasks-heading">
+      <p class="panel__label" id="tasks-heading">Открытые задачи на сегодня</p>
+      <div class="tasks">
+        <a
+          class="task"
+          href="../templates/learning/index.html"
+          data-navigate="true"
+        >
+          <span class="task__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="14" height="14" rx="2"/>
+              <path d="M17 10l4-2v8l-4-2z"/>
+            </svg>
+          </span>
+          <span class="task__text">
+            <span class="task__title">Просмотреть видео</span>
+            <span class="task__xp">+10 🍃</span>
+          </span>
+          <span class="task__arrow" aria-hidden="true">→</span>
+        </a>
+
+        <button
+          type="button"
+          class="task"
+          data-task="Пройти тест"
+          data-xp="25"
+        >
+          <span class="task__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l2 2 4-4"/>
+              <rect x="4" y="3" width="16" height="18" rx="2"/>
+            </svg>
+          </span>
+          <span class="task__text">
+            <span class="task__title">Пройти тест</span>
+            <span class="task__xp">+25 🍃</span>
+          </span>
+          <span class="task__arrow" aria-hidden="true">→</span>
+        </button>
+
+        <a
+          class="task"
+          href="../templates/map/index.html"
+          data-navigate="true"
+        >
+          <span class="task__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/>
+              <circle cx="12" cy="10" r="2.5"/>
+            </svg>
+          </span>
+          <span class="task__text">
+            <span class="task__title">Отметить точку на карте</span>
+            <span class="task__xp">+50 🍃</span>
+          </span>
+          <span class="task__arrow" aria-hidden="true">→</span>
+        </a>
+
+        <button
+          type="button"
+          class="task"
+          data-task="Загрузить фото уборки"
+          data-xp="50"
+        >
+          <span class="task__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 16V6"/>
+              <path d="M8 10l4-4 4 4"/>
+              <path d="M4 18h16"/>
+            </svg>
+          </span>
+          <span class="task__text">
+            <span class="task__title">Загрузить фото уборки</span>
+            <span class="task__xp">+50 🍃</span>
+          </span>
+          <span class="task__arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="reward-modal" role="dialog" aria-modal="true" aria-labelledby="modal-text" hidden>
+    <button type="button" class="modal__backdrop" aria-label="Закрыть" data-close></button>
+    <div class="modal__dialog">
+      <div class="modal__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17 8C8 10 5.9 16.17 3.82 21.67l1.91.67c.84-2.24 1.73-4.2 2.87-5.67C11 19 14.5 20 17 20c3.5 0 6-2.5 6-6 0-4-3-7.5-6-6z"/>
+          <path d="M12.5 11.5c0 2.5-1.5 4.5-3.5 5.5.5-2.5 1.5-4.5 3.5-5.5z" opacity=".35"/>
+        </svg>
+      </div>
+      <p class="modal__text" id="modal-text"></p>
+      <button type="button" class="modal__close" data-close>Закрыть</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById("reward-modal");
+      const modalText = document.getElementById("modal-text");
+      const tasks = document.querySelectorAll(".task[data-task]");
+      let lastFocus = null;
+
+      function openModal(taskName, leaves) {
+        lastFocus = document.activeElement;
+        modalText.innerHTML =
+          "Вы сделали «" +
+          taskName +
+          "». За это вам <span class=\"xp-gain\">+" +
+          leaves +
+          " 🍃</span>.";
+        modal.hidden = false;
+        requestAnimationFrame(function () {
+          modal.classList.add("is-open");
+        });
+        modal.querySelector(".modal__close").focus();
+        document.addEventListener("keydown", onKeydown);
+      }
+
+      function closeModal() {
+        modal.classList.remove("is-open");
+        document.removeEventListener("keydown", onKeydown);
+        setTimeout(function () {
+          modal.hidden = true;
+          if (lastFocus) lastFocus.focus();
+        }, 250);
+      }
+
+      function onKeydown(e) {
+        if (e.key === "Escape") closeModal();
+      }
+
+      /* Модалка только у задач без перехода на другую страницу */
+      tasks.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          openModal(btn.dataset.task, btn.dataset.xp);
+        });
+      });
+
+      modal.querySelectorAll("[data-close]").forEach(function (el) {
+        el.addEventListener("click", closeModal);
+      });
+    })();
+  </script>
+</body>
+</html>
