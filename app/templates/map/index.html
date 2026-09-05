@@ -1,1 +1,131 @@
-<!-- Map page. -->
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<div class="scout-layout">
+  <aside class="scout-sidebar">
+    <div class="scout-profile">
+      <div class="scout-avatar" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="8" r="3.5"/>
+          <path d="M5 19.5c1.8-3.2 4.1-4.8 7-4.8s5.2 1.6 7 4.8"/>
+        </svg>
+      </div>
+      <div class="scout-level">Скаут <strong>5</strong> уровня</div>
+      <div class="scout-xp-label"><strong>4 280</strong> / 5 000 XP</div>
+      <div class="scout-xp-bar">
+        <div class="scout-xp-bar__fill" style="width: 85.6%"></div>
+      </div>
+    </div>
+
+    <nav class="scout-nav" aria-label="Навигация">
+      <a class="scout-nav__btn" href="/" title="Главная">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 11.5 12 4l8 7.5"/>
+          <path d="M6.5 10.5V20h11V10.5"/>
+        </svg>
+      </a>
+      <a class="scout-nav__btn is-active" href="/map" title="Карта">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3.5 6.5 9 4l6 2.5L20.5 4v13.5L15 20l-6-2.5L3.5 20z"/>
+          <path d="M9 4v13.5M15 6.5V20"/>
+        </svg>
+      </a>
+    </nav>
+
+    <a class="scout-nav__btn scout-nav__btn--bottom" href="#" title="Настройки">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 3.5v2.2M12 18.3v2.2M4.9 6.5l1.6 1.6M17.5 15.9l1.6 1.6M3.5 12h2.2M18.3 12h2.2M4.9 17.5l1.6-1.6M17.5 8.1l1.6-1.6"/>
+      </svg>
+    </a>
+  </aside>
+
+  <section class="scout-main">
+    <div class="scout-map-card">
+      <div id="map" aria-label="Карта берегов Камчатского края"></div>
+
+      <aside class="map-legend" aria-label="Легенда прогресса">
+        <div class="map-legend__title">Прогресс очистки</div>
+        <div class="map-legend__item">
+          <span class="map-legend__dot map-legend__dot--low"></span>
+          0–33% — требует очистки
+        </div>
+        <div class="map-legend__item">
+          <span class="map-legend__dot map-legend__dot--mid"></span>
+          34–66% — в работе
+        </div>
+        <div class="map-legend__item">
+          <span class="map-legend__dot map-legend__dot--high"></span>
+          67–100% — почти чисто
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
+
+<script>
+  var shores = {{ shores | tojson }};
+
+  var shoresBounds = L.latLngBounds(
+    shores.map(function (shore) { return [shore.lat, shore.lng]; })
+  );
+  // Мягкий лимит: можно чуть отойти от точек, но не уехать далеко
+  var softBounds = shoresBounds.pad(0.85);
+
+  var map = L.map('map', {
+    maxBounds: softBounds,
+    maxBoundsViscosity: 0.55,
+    minZoom: 5,
+    maxZoom: 14,
+    zoomControl: true,
+    worldCopyJump: false
+  });
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+    maxZoom: 14,
+    minZoom: 5
+  }).addTo(map);
+
+  // Стартовый вид — ближе к берегам
+  map.fitBounds(shoresBounds, { padding: [48, 48], maxZoom: 8 });
+
+  setTimeout(function () { map.invalidateSize(); }, 0);
+
+  function progressColor(progress) {
+    if (progress <= 33) return '#c0392b';
+    if (progress <= 66) return '#e67e22';
+    return '#27ae60';
+  }
+
+  function makeIcon(progress) {
+    var color = progressColor(progress);
+    return L.divIcon({
+      className: 'custom-marker',
+      html: '<div class="marker-pin" style="background:' + color + ';"></div>',
+      iconSize: [18, 18],
+      iconAnchor: [9, 9],
+      popupAnchor: [0, -12]
+    });
+  }
+
+  shores.forEach(function (shore) {
+    var color = progressColor(shore.progress);
+    var popup =
+      '<div class="popup-title">' + shore.name + '</div>' +
+      '<div class="popup-body">' +
+      '  <div>Загрязнение: ' + shore.pollution + '</div>' +
+      '  <div class="popup-progress-label"><span>Очистка</span><span>' + shore.progress + '%</span></div>' +
+      '  <div class="popup-bar"><div class="popup-bar__fill" style="width:' + shore.progress + '%;background:' + color + ';"></div></div>' +
+      '  <div class="popup-badge" style="background:' + color + ';">' + shore.status + '</div>' +
+      '</div>';
+
+    L.marker([shore.lat, shore.lng], { icon: makeIcon(shore.progress) })
+      .addTo(map)
+      .bindPopup(popup, { maxWidth: 280 });
+  });
+</script>
+{% endblock %}
