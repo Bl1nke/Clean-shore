@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment and tooling
+.env
+.pytest_cache/
+.coverage
+htmlcov/
+
+# User uploads and generated data
+instance/
+uploads/
+tmp/
+
+# Editor and OS files
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+
