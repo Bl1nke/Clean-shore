@@ -1,4 +1,10 @@
-"""Future Flask application entry point."""
+"""Local development entry point."""
 
-# Application startup will be added after the data model and routes are approved.
+from app import create_app
 
+
+app = create_app()
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

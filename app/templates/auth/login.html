@@ -1,1 +1,33 @@
-<!-- Sign-in page. -->
+{% extends "base.html" %}
+
+{% block title %}Вход — Чистый берег{% endblock %}
+
+{% block content %}
+  <main class="welcome" aria-labelledby="welcome-title">
+    <section class="role-picker" aria-label="Выберите способ входа">
+      <h1 class="welcome__brand" id="welcome-title">
+        <span class="welcome__brand-mark" aria-hidden="true">∿</span>
+        <span>Чистый берег</span>
+      </h1>
+      <article class="role-card role-card--public is-selected">
+        <div class="role-card__content">
+          <p class="role-card__eyebrow">14+</p>
+          <span class="role-card__accent" aria-hidden="true"></span>
+          <p>Мы могнем мусор на берегах РФ</p>
+          <a class="role-card__button" href="#login" aria-label="Войти как участник">Войти</a>
+        </div>
+        <div class="mountains mountains--light" aria-hidden="true"></div>
+      </article>
+
+      <article class="role-card role-card--team">
+        <div class="role-card__content">
+          <p class="role-card__eyebrow">Сотрудники<br>ООПТ</p>
+          <span class="role-card__accent" aria-hidden="true"></span>
+          <p>Опытные и харизматичные</p>
+          <a class="role-card__button" href="#login" aria-label="Войти как сотрудник ООПТ">Войти</a>
+        </div>
+        <div class="mountains mountains--dark" aria-hidden="true"></div>
+      </article>
+    </section>
+  </main>
+{% endblock %}
